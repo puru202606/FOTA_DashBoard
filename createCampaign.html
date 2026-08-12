@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="static/images/logo_WithoutText.png?v=2" sizes="32x32" type="image/png">
+<title>Create Campaign</title>
+<link rel="stylesheet" href="static/css/styles.css">
+<link rel="stylesheet" href="static/css/createCampaign.css">
+
+</head>
+
+<body>
+
+<div class="header">
+
+    <div class="headerLeft">
+
+    <img
+        src="../static/images/logo.png"
+        class="headerLogo"
+        alt="Bosch Logo">
+
+        <div>
+
+            <div class="logo">
+                OTA Platform
+            </div>
+
+            <div class="subtitle">
+                Firmware Over-The-Air Campaign Management
+            </div>
+
+        </div>
+
+    </div>
+    <div style="display:flex;gap:10px;">
+
+    <div class="navMenu">
+
+    <button
+        class="navBtn active"
+        onclick="window.location='index.html'">
+
+        Dashboard
+
+    </button>
+
+    <button
+        class="navBtn active"
+        onclick="window.location='registered_tbms.html'">
+
+        Registered Vehicles
+
+    </button>
+
+    <button
+        class="navBtn"
+        onclick="window.location='createCampaign.html'">
+
+        Create Campaign
+
+    </button>
+
+    <button
+        class="navBtn active"
+        onclick="window.location='CampaignHistory.html'">
+
+        Campaign History
+
+    </button>
+
+    <button
+        class="navBtn active"
+        onclick="window.location='firmware_repository.html'">
+
+        Firmware Repository
+
+    </button>
+
+    <button
+        class="logoutBtn"
+        onclick="logout()">
+
+        Logout
+
+    </button>
+
+</div>
+
+</div>
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Create New Campaign</h2>
+
+<label for="vin">
+    Target Vehicle
+</label>
+
+<select
+    id="vin"
+    onchange="loadCurrentVersions()">
+
+    <option value="">
+        Select Connected VIN
+    </option>
+
+</select>
+
+<label for="campaignId">
+    Campaign ID
+</label>
+
+<input
+    type="text"
+    id="campaignId"
+    placeholder="Example: CMP_{VIN}_{DDMMYYYY}_{HHMM}">
+
+
+<label for="campaignName">
+    Campaign Name
+</label>
+
+<input
+    type="text"
+    id="campaignName"
+    placeholder="Campaign Name">
+
+<br>
+<br>
+
+<h3>Select Target ECUs</h3>
+
+<div class="ecuSection">
+
+    <h3>SGW ECU</h3>
+
+    <div class="currentVersion">
+
+        Current Version :
+        <span id="currentSGW">--</span>
+
+    </div>
+
+    <div class="ecuToggle">
+
+        <input
+            type="checkbox"
+            id="enableSGW">
+
+        <label for="enableSGW">
+            Update SGW
+        </label>
+
+    </div>
+
+    <label for="sgwVersion">
+        Target Version
+    </label>
+
+    <input
+        type="text"
+        id="sgwVersion"
+        placeholder="e.g. 3.0">
+
+    <label for="sgwFirmware">
+        Firmware File
+    </label>
+
+    <input
+        type="file"
+        id="sgwFirmware"
+        accept=".bin">
+
+</div>
+
+<div class="ecuSection">
+
+    <h3>BCM ECU</h3>
+
+    <div class="currentVersion">
+
+        Current Version :
+        <span id="currentBCM">--</span>
+
+    </div>
+
+    <div class="ecuToggle">
+
+        <input
+            type="checkbox"
+            id="enableBCM">
+
+        <label for="enableBCM">
+            Update BCM
+        </label>
+
+    </div>
+
+    <label for="bcmVersion">
+        Target Version
+    </label>
+
+    <input
+        type="text"
+        id="bcmVersion"
+        placeholder="e.g. 3.0">
+
+    <label for="bcmFirmware">
+        Firmware File
+    </label>
+
+    <input
+        type="file"
+        id="bcmFirmware"
+        accept=".bin">
+
+</div>
+
+<div
+style="
+display:flex;
+justify-content:flex-end;
+gap:15px;
+margin-top:25px;
+">
+
+<button
+class="secondary"
+onclick="window.location='index.html'">
+
+Cancel
+
+</button>
+
+<button
+class="primary"
+onclick="createCampaign()">
+
+Create Campaign
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+Bosch Engineering Demo • FOTA Platform v2.0
+
+</div>
+
+<script src="static/js/common.js"></script>
+<script src="static/js/create_campaign.js"></script>
+
+</body>
+
+</html>

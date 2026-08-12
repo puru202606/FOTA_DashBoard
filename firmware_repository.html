@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="static/images/logo_WithoutText.png?v=2" sizes="32x32" type="image/png">
+<title>Firmware Repository</title>
+<link rel="stylesheet" href="static/css/styles.css">
+<link rel="stylesheet" href="static/css/firmware_repository.css">
+</head>
+
+<body>
+<div class="header">
+
+    <div class="headerLeft">
+
+    <img
+        src="static/images/logo.png"
+        class="headerLogo"
+        alt="Bosch Logo">
+
+        <div>
+
+            <div class="logo">
+                OTA Platform
+            </div>
+
+            <div class="subtitle">
+                Firmware Over-The-Air Campaign Management
+            </div>
+
+        </div>
+
+    </div>
+    <div style="display:flex;gap:10px;">
+
+    <div class="navMenu">
+    
+    <button 
+        class="navBtn active"
+        onclick="window.location='index.html'">
+        
+        Dashboard
+    
+    </button>
+
+    <button
+        class="navBtn active"
+        onclick="window.location='registered_tbms.html'">
+
+        Registered Vehicles
+
+    </button>
+
+    <button
+        class="navBtn active"
+        onclick="window.location='createCampaign.html'">
+
+        Create Campaign
+
+    </button>
+
+    <button
+        class="navBtn active"
+        onclick="window.location='CampaignHistory.html'">
+
+        Campaign History
+
+    </button>
+
+    <button
+        class="navBtn"
+        onclick="window.location='firmware_repository.html'">
+
+        Firmware Repository
+
+    </button>
+
+    <button
+        class="logoutBtn"
+        onclick="logout()">
+
+        Logout
+
+    </button>
+
+</div>
+
+</div>
+</div>
+
+<div class="container">
+
+    <div class="pageTitle">
+
+        <h1>Firmware Repository</h1>
+
+        <p>
+            Manage firmware releases stored in the central repository.
+        </p>
+
+    </div>
+
+    <div class="grid">
+
+        <!-- Upload -->
+
+        <div class="card">
+
+            <h2>Upload Firmware</h2>
+
+            <label>Target ECU</label>
+
+            <select id="ecu">
+
+                <option>SGW</option>
+
+                <option>BCM</option>
+
+            </select>
+
+            <label>Firmware Version</label>
+
+            <input
+                id="version"
+                type="text"
+                placeholder="Example : 2.0">
+
+            <label>Firmware Binary</label>
+
+            <input
+                id="firmwareFile"
+                type="file"
+                accept=".bin">
+
+            <button
+                class="primary"
+                onclick="uploadFirmware()">
+
+                Upload Firmware
+
+            </button>
+
+        </div>
+
+        <!-- Latest -->
+
+        <div class="card">
+
+            <h2>Latest Approved Firmware</h2>
+
+            <div id="latestFirmwareList">
+
+                Loading latest firmware...
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div style="height:20px"></div>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <div class="consoleHeader">
+
+                <h2>Existing SGW Firmware</h2>
+
+                <button
+                    class="downloadBtn"
+                    onclick="refreshHistory()">
+
+                    Refresh
+
+                </button>
+
+            </div>
+            <div class="firmwareListContainer">
+                <div id="sgwFirmwareList">
+
+                    Loading...
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="consoleHeader">
+
+                <h2>Existing BCM Firmware</h2>
+
+                <button
+                    class="downloadBtn"
+                    onclick="refreshHistory()">
+
+                    Refresh
+
+                </button>
+
+            </div>
+            <div class="firmwareListContainer">
+                <div id="bcmFirmwareList">
+
+                    Loading...
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    Bosch Engineering Demo • FOTA Platform v2.0
+</div>
+<script src="static/js/common.js"></script>
+<script src="static/js/firmware_repository.js"></script>
+</html>

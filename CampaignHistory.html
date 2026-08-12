@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<link rel="icon" href="static/images/logo_WithoutText.png?v=2" sizes="32x32" type="image/png">
+<title>Campaign History</title>
+<link rel="stylesheet" href="static/css/styles.css">
+<link rel="stylesheet" href="static/css/CamapignHistory.css">
+
+</head>
+
+<body>
+
+<div class="header">
+
+    <div class="headerLeft">
+
+        <img
+            src="../static/images/logo.png"
+            class="headerLogo"
+            alt="Bosch Logo">
+
+        <div>
+
+            <div class="logo">
+                OTA Platform
+            </div>
+
+            <div class="subtitle">
+                Firmware Over-The-Air Campaign Management
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="navMenu">
+
+        <button class="navBtn active"
+        onclick="window.location='index.html'">
+            Dashboard
+        </button>
+
+        <button class="navBtn active"
+        onclick="window.location='registered_tbms.html'">
+            Registered Vehicles
+        </button>
+
+        <button class="navBtn active"
+        onclick="window.location='createCampaign.html'">
+            Create Campaign
+        </button>
+
+        <button class="navBtn"
+        onclick="window.location='CampaignHistory.html'">
+            Campaign History
+        </button>
+
+        <button class="navBtn active"
+        onclick="window.location='firmware_repository.html'">
+            Firmware Repository
+        </button>
+
+        <button
+        class="logoutBtn"
+        onclick="logout()">
+            Logout
+        </button>
+
+    </div>
+
+</div>
+
+
+<div class="container">
+
+<!-- Page Title -->
+
+<div class="pageTitle">
+
+<h1>
+
+Campaign History
+
+</h1>
+
+<p>
+
+Monitor firmware deployment campaigns and update progress.
+
+</p>
+
+</div>
+
+
+<!-- KPI -->
+
+<div class="kpiRow">
+
+<div class="kpi">
+
+<div
+class="kpiValue"
+id="campaignCount">
+
+0
+
+</div>
+
+<div class="kpiLabel">
+
+Total Campaigns
+
+</div>
+
+</div>
+
+
+<div class="kpi">
+
+<div
+class="kpiValue"
+id="runningCount">
+
+0
+
+</div>
+
+<div class="kpiLabel">
+
+Running Campaigns
+
+</div>
+
+</div>
+
+
+<div class="kpi">
+
+<div
+class="kpiValue"
+id="completedCount">
+
+0
+
+</div>
+
+<div class="kpiLabel">
+
+Completed
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- Card -->
+
+<div class="card">
+
+<h2>
+
+Campaign List
+
+</h2>
+
+<div class="toolbar">
+
+<input
+
+id="searchCampaign"
+
+placeholder="Search Campaign ID or VIN"
+
+onkeyup="loadCampaigns()">
+
+<button
+
+class="primary"
+
+onclick="loadCampaigns()">
+
+Refresh
+
+</button>
+
+</div>
+
+
+<div id="campaignList" class="campaignContainer">
+
+<!-- Campaign cards will be added here by JavaScript -->
+
+</div>
+
+
+
+</div>
+
+</div>
+
+
+<div class="footer">
+
+Bosch Engineering Demo • FOTA Platform v2.0
+
+</div>
+
+<script src="static/js/common.js"></script>
+<script src="static/js/campaign_history.js"></script>
+
+</body>
+
+</html>

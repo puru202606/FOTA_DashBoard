@@ -1,4 +1,4 @@
-const SERVER = "https://fota-demo-v2-0.onrender.com";
+const SERVER = "https://fota-server-fqov.onrender.com";
 
 async function uploadFirmware(file, ecu, version) {
 
